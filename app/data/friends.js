@@ -14,7 +14,7 @@ module.exports = pets = [
             1,
             1,
             2,
-            1
+            2
         ]
     },
     {
@@ -46,7 +46,9 @@ module.exports = pets = [
             2,
             3,
             5,
-            5
+            5,
+            2
+
         ]
     },
     {
@@ -61,6 +63,7 @@ module.exports = pets = [
             4,
             5,
             4,
+            5,
             5
         ]
     }
