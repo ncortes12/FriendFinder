@@ -6,7 +6,7 @@ var path = require("path");
 var PORT = process.env.PORT || 8080;
 
 
-app.use(express.static("public"))
+app.use(express.static("./app/public"))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 require("./app/routing/apiRoutes.js")(app);
