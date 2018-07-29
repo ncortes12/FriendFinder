@@ -41,7 +41,8 @@
         </div>
         <h2>Question 1</h2>
         <h3>I would like to take my pup on long walks everyday.</h3>
-        <select id="qOne" class="form-control form-control-sm">
+        <select id="qOne" class="form-control form-control-sm clear">
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -51,7 +52,8 @@
 
         <h2>Question 2</h2>
         <h3>I want a pet who likes to be lazy and cuddle.</h3>
-        <select id="qTwo" class="form-control form-control-sm">
+        <select id="qTwo" class="form-control form-control-sm clear">
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -61,7 +63,8 @@
 
         <h2>Question 3</h2>
         <h3>Being kid friendly is important.</h3>
-        <select id="qThree" class="form-control form-control-sm">
+        <select id="qThree" class="form-control form-control-sm clear">
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -70,7 +73,8 @@
         </select>
         <h2>Question 4</h2>
         <h3>I would like to have more than one doggo.</h3>
-        <select id="qFour" class="form-control form-control-sm">
+        <select id="qFour" class="form-control form-control-sm clear">
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -80,7 +84,8 @@
 
         <h2>Question 5</h2>
         <h3>I like to play fetch.</h3>
-        <select id="qFive" class="form-control form-control-sm">
+        <select id="qFive" class="form-control form-control-sm clear">
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -90,7 +95,8 @@
 
         <h2>Question 6</h2>
         <h3>I want a hiking buddy.</h3>
-        <select id="qSix" class="form-control form-control-sm">
+        <select id="qSix" class="form-control form-control-sm clear">
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -100,7 +106,8 @@
 
         <h2>Question 7</h2>
         <h3>My dog needs to be quiet, I have lots of neighbors.</h3>
-        <select id="qSeven" class="form-control form-control-sm">
+        <select id="qSeven" class="form-control form-control-sm clear">
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -110,7 +117,8 @@
 
         <h2>Question 8</h2>
         <h3>I would like my dog to be easy to train.</h3>
-        <select id="qEight" class="form-control form-control-sm">
+        <select id="qEight" class="form-control form-control-sm clear">
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -120,7 +128,8 @@
 
         <h2>Question 9</h2>
         <h3>I want a large dog.</h3>
-        <select id="qNine" class="form-control form-control-sm">
+        <select id="qNine" class="form-control form-control-sm clear">
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -130,7 +139,8 @@
 
         <h2>Question 10</h2>
         <h3>I would like my dog not to shed.</h3>
-        <select id="qTen" class="form-control form-control-sm">
+        <select id="qTen" class="form-control form-control-sm clear">
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -142,10 +152,29 @@
 
         <div class="row">
             <a href="/api/friends">API Pet List |</a>
-            <a id="gitlink" href="#">GitHub Repo</a>
+            <a id="gitlink" href="https://github.com/ncortes12/FriendFinder">GitHub Repo</a>
         </div>
 
-        <div class = "display"></div>
+        <div class="modal fade" id="results" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Your Perfect Pet Match</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h2 id="match-name"></h2>
+                        <img id="match-pic" class="img-fluid" src="#">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -159,6 +188,12 @@
     </div>
     <script>$(".bigbtn").on("click", function () {
             event.preventDefault();
+            var name = $(".name").val().trim();
+            $(".name").val("");
+           
+            var photo = $(".photo").val().trim();
+            $(".photo").val("");
+            
             var score = [];
 
             score.push($("#qOne").val());
@@ -171,27 +206,49 @@
             score.push($("#qEight").val());
             score.push($("#qNine").val());
             score.push($("#qTen").val());
+           
+            $(".clear").val("");
 
-       
+            for (var i = 0; i < score.length; i++) {
+                if (score[i] === 0 || name === "" || photo === "") {
+                    alert("Please fill out all fields")
+                }
+                else {
+                    var userData = {
+                        name: name,
+                        photo: photo,
+                        score: score,
+                    };
+                    
+                  }
+
+                //var currentURL = window.location.origin
 
 
-            var userData = {
-                name: $(".name").val().trim(),
-                photo: $(".photo").val().trim(),
-                score: score,
-            };
 
-            //var currentURL = window.location.origin
+
+
+
+            }
             $.post("/api/friends", userData, function (data) {
                 //console.log(userData)
                 console.log("i'm working, I found: ")
-                console.log(data)
+                console.log(data.name)
+
+                $("#match-name").text(data.name);
+                $("#match-pic").attr("src", data.photo);
+                $("#results").modal("toggle");
 
 
 
-            }).then(function (){
-                $(".display").append(petsDisplay)
+
+
             })
+          
+
+
+
+
 
         })
     </script>
