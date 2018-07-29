@@ -1,7 +1,7 @@
 
 
 //defining variables
-var pets = require("../data/friends.js");
+var pets = require("../data/pet.js");
 var data;
 //this will hold the survey scores for each pet
 var petScore = [];
