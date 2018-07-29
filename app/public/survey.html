@@ -186,8 +186,11 @@
 
 
     </div>
+<!-- on click event to submit the users results  -->
     <script>$(".bigbtn").on("click", function () {
             event.preventDefault();
+
+            // using jquery to get the value from all of the inputs and clearning the display
             var name = $(".name").val().trim();
             $(".name").val("");
            
@@ -209,11 +212,15 @@
            
             $(".clear").val("");
 
+            //logic to check that all of the information is filled out
+
             for (var i = 0; i < score.length; i++) {
                 if (score[i] === 0 || name === "" || photo === "") {
                     alert("Please fill out all fields")
                 }
                 else {
+
+                //if all inputs are filled out it will create the userData object to be sent to api/friends
                     var userData = {
                         name: name,
                         photo: photo,

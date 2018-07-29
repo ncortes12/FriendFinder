@@ -33,7 +33,7 @@ module.exports = function (app) {
 
         //storing req.body in an easier to use variable
         data = req.body;
-        // console.log(data);
+        console.log(data);
         
         convertToNum();
         // this loop goes through all of the pet options from friends.js
