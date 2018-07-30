@@ -48,7 +48,8 @@ module.exports = function (app) {
         // console.log(compScoreArray)
         showMatch();
         console.log(bestPet)
-        pets.push(data);
+        // this would push the new user into the array, but since i am mathcing pets not people i don't want the humans in the pets array
+        // pets.push(data);
         res.json(bestPet);
     })
 
