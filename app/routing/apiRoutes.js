@@ -2,15 +2,15 @@
 
 //defining variables
 var pets = require("../data/pet.js");
-var data;
+var data ="";
 //this will hold the survey scores for each pet
 var petScore = [];
 //this will hold the users survey response stored as numbers
 var numArray = [];
 // this is the users survey results with strings instead of numbers
-var scoreArray;
+var scoreArray =[];
 // this variable i used to conver the differences in the arrays into absolute value, so there are no negative numbers
-var absDiff;
+var absDiff = 0;
 // this array holds the differences between the user and each pet
 var diffArray = [];
 //this function I use to sum the diffArray function 
@@ -22,7 +22,7 @@ var compScoreArray = [];
 // variable used to compare the scores to find the lowest
 var lowestScore = 1000;
 // this variable is set to the best pet match and exported back to survey.html
-var bestPet;
+var bestPet ="";
 module.exports = function (app) {
 
     app.get("/api/friends", function (req, res) {
@@ -98,6 +98,8 @@ function showMatch() {
             // console.log(pets[i])
 
             bestPet = pets[i]
+            // reseting lowestScore to 1000
+            lowestScore = 1000;
 
         }
 

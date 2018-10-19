@@ -1,7 +1,4 @@
-.survbtn{
-    background-color: rgb(83, 83, 243);
-    border-color: rgb(83, 83, 243);
-}
+
 
 #gitlink{
     padding-left:5px;
@@ -19,8 +16,35 @@ body{color:rgb(97, 93, 93)}
 
 h3{margin-top:10px;
 margin-bottom:10px;}
+
 h2{margin-top: 10px;}
+
 .bigbtn{
     margin-top:30px;
     margin-bottom:30px;
+    color:black;
+    border-color:black;
+    font-weight: bolder;
+    background-color:whitesmoke;
+    opacity: .3
+}
+
+.home{
+    background-image:url("background.jpg");
+   
+}
+
+.navbar{
+    background-color: rgb(177, 177, 159);
+}
+
+.display{
+    margin-top:15%;
+}
+
+body{
+    background-image: url("survey-background.jpg");
+    color:black;
+    
+   
 }
